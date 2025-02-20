@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">   
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+    <link rel="icon" href="images/favicon.ico">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300&display=swap'); 
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            font-family: 'Be Vietnam Pro', sans-serif;
+        }
+        :root{
+            --clr-black: #000;
+            --clr-white: #fff;
+            --clr-orange: #e84949;
+            --clr-light-gray: #E7E7E7;
+            --clr-blue: #4e45d5;
+            --clr-dark-blue: #343d68;
+}
+        #wrapper{
+            height: 100vh;
+            overflow-y: auto;
+            overflow-x: hidden;   
+        }
+        .container{
+           width: 1250px;
+            margin: 0 auto;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+          
+        }
+        .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+        }
+        .logo{
+            width: 80px;
+        }
+        .logo-text{
+            margin: -1.2rem;
+            font-size: 28px;
+            font-weight:900;
+        }
+        .logo-container{
+            display: flex;
+            align-items:center;
+           
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .nav-items{
+            display: flex;
+            gap: 2rem;
+            padding:0 4em;
+            font-weight: 400;
+        }
+        .nav-items div{
+            font-size: 20px;
+            font-weight: 400;
+            cursor: pointer;
+        }
+        .nav-items div:hover{
+            transition: 0.8s;
+            font-weight: 900;
+        }
+        .hero-section{
+            display:flex;
+            height: 700px;;
+            padding-bottom:12.8rem;
+            margin:6.4rem auto; 
+            position: relative;
+        }
+        .faded-text{
+            user-select: none;
+            font-size: 7em;
+            color: var(--clr-light-gray); 
+            position: absolute;
+            bottom: -19%;
+            left: -5%;
+            font-weight: bolder;
+            /* transition: all 3s; */
+            
+          
+        }
+        .hero-section-left{
+            display: flex;
+            width:728px ;
+            flex-direction: column;
+            gap:3.2rem;
+        }
+        .hero-section-left .name{
+            color:var(--clr-dark-blue);
+            font-size:2.5rem;
+        }
+        .hero-section-left .profession{
+            color:var(--clr-dark-blue);
+            font-size:3rem;
+        }
+        .hero-section-left .role{
+            color:var(--clr-blue);
+            font-weight: 900;
+
+        }
+        .hero-section-left .desc{
+            margin-top: 1rem;
+            width: 70%;
+            font-weight: 500;
+        }
+        .hero-section-left .btn {
+            width: 10rem;
+            height: 4rem;
+            font-family: serif;
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #fff;
+            background-color: rgb(210, 66, 66);
+            border:3px solid  rgb(210, 66, 66);
+            box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .hero-section-left .btn::before {
+            content: "Hire me";
+            position: absolute;
+            left:30%;
+            top: 50%;
+            transform: translate(-8%, -50%);
+            z-index: 2;
+            transition: 1s;
+        }
+        .hero-section-left .btn:hover{
+            color: black;
+        }
+        .hero-section-left  .btn::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color:whitesmoke;
+          
+            position: absolute;
+            left: 0;
+            top: 0;
+            transform:   translateX(-100%);
+            transition:all 1s;
+            z-index: 1;
+        }
+
+        .hero-section-left .btn:hover::after {
+            transform:translateX(0%);
+           
+        }
+        .hero-section-right{
+            display:flex;
+            position: relative;
+            
+        }
+        .absolute{
+            position: absolute;
+            z-index: 1;
+        }
+        .my-image{
+            padding:3rem;
+            filter: grayscale(1);
+            transition: all 1s;
+            animation: scaleImage 5s linear infinite ;
+        }
+       
+        @keyframes scaleImage {
+            0%{
+                filter: grayscale(0);
+                transform: scale(1);
+            }
+            50%{
+                transform: scale(1.1);
+                filter: grayscale(1);
+                box-shadow: 3px 3px 10px black;
+
+            }
+            100%{
+                transform: scale(1);
+                filter: grayscale(0);
+            }
+        }
+        .icon-dots{
+            bottom: -1rem;
+            right: 0;
+            animation-name: dotsanimation;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes dotsanimation {
+            0%{
+               transform: translateY(0px); 
+            }
+            50%{
+                transform: translateY(-15px);
+            }
+            100%{
+                transform: translateY(0px);
+            }
+        }
+        .icon-cube{
+            right: 0;
+            bottom:95%;
+            animation: cuberotate;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes cuberotate {
+            0%{
+             
+               transform: rotateY(0deg) translateY(0px); 
+            }
+            50%{
+                transform:rotateY(180deg) translateY(-12px);
+            }
+            100%{
+                transform:rotateY(360deg) translateY(0px);
+            }
+        }
+       .icon-circle{
+           left: 0;
+           bottom: 0;
+           animation-name: shakeeffect;
+           animation-duration: 6s;
+           animation-timing-function: linear;
+           animation-iteration-count: infinite;
+       } 
+       @keyframes shakeeffect {
+        /* 0%{
+             left: 0;
+             bottom: 0;
+            
+          } */
+          50%{
+             left: 5%;
+             bottom: 10%;
+          }
+          /* 100%{
+            left: 0;
+            bottom: 0;
+          } */
+       }
+       .icon-zigzag{
+        left:-0.50rem;
+        top: 1.5rem;
+        animation:zigzag 6s ease-in infinite ;
+       }
+       @keyframes  zigzag {
+        50%{
+            top:1%;
+            left:5% ;
+          }
+       }
+       .icon-plus{
+            left: 50%;
+            top: -0.8rem;
+            animation: shakeplus 5s ease-in infinite;
+       }
+       @keyframes shakeplus {
+            50%{
+                top:3%;
+                left:48%;
+            }
+       }
+       .project-section{
+            background-color: var(--clr-light-gray);
+            padding-top: 3rem;
+        }
+
+    .project-section .project-header{
+        text-align: center;
+        font-size: 5rem;
+        color: var(--clr-orange);
+    }
+
+    .project-section .project-container{
+        display: flex;
+        flex-direction: column;
+        gap: 12rem;
+        padding-top: 4.8rem;
+        padding-bottom: 4.8rem;
+    }
+
+    .project-container .project-card{
+        width: 70%;
+        height: 33rem;
+        background-color: #afafaf;
+        background-image: url('images/projects/Project1.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        box-shadow: 0 0 4rem #1f1f1f;
+        position: relative;
+    }
+
+    .project-container #project-2{
+        background-image: url('images/projects/Project2.png');
+    }
+
+    .project-container #project-3{
+        background-image: url('images/projects/Project3.png');
+    }
+
+    .project-container #project-4{
+        background-image: url('images/projects/Project4.png');
+    }
+    .project-card:nth-child(odd){
+        left:10%;
+    }
+    .project-card:nth-child(even){
+        left:15%;
+    }
+    .project-card::before{
+        content: "";
+        background: #1f1f1f9a;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 1;
+    }
+     .project-card::after{
+        content: "";
+        background: linear-gradient(45deg, #343d68, #343d68be, #343d687c);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: all 0.4s;
+        z-index: 2;
+    } 
+    .project-card:hover::after{
+        transform: scaleX(1);
+    }
+    .project-card .project-content{
+        color: var(--clr-white);
+        display: flex;
+        flex-direction: column; 
+        gap: 1.2rem;
+        padding:3.2rem;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 5;
+        transition: all 0.4s;
+        /* max-width: 55%; */
+    }
+    .project-content .project-skills-container img{
+        width: 3rem;
+    }
+    .project-content .project-skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        max-width:80%;
+    } 
+    .project-content h2{
+        font-size: 3.5rem; 
+        font-weight: 700;
+    } 
+    .project-card:hover > .project-content{
+        scale: 1.1;
+    }
+    .project-card:nth-child(odd) .project-content{
+        left: 10%;
+    }
+
+    .project-card:nth-child(even) .project-content{
+        right: 10%;
+    }
+    .project-content p{
+        font-size: 1rem;
+        font-style: italic;
+        max-width: 70%;
+    }
+    .project-content .project-buttons{
+        display:flex;
+        gap: 1.6rem;
+        align-items: center;
+    }
+    .project-buttons .btn{
+        width:fit-content;
+        font-family: inherit;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: var(--clr-white);
+        background-color: var(--clr-orange);
+        border: solid 3px transparent;
+        padding: 1rem 2rem;
+        box-shadow: 5px 5px 7px 0px #0000003f;
+        overflow: hidden;
+        cursor: pointer;
+        z-index: 1;
+        transition: all 0.5s;
+        position: relative;
+    }
+
+    .project-buttons .btn::before{
+        content: "";
+        position: absolute;
+        background-color: var(--clr-white);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: all 0.8s;
+    }
+
+    .project-buttons .btn:hover {
+        color: var(--clr-black);
+    }
+
+    .project-buttons .btn:hover::before{
+        transform: scaleX(100%);
+    }
+    .project-buttons .icons{
+        font-size: 3rem;
+        color: var(--clr-white);
+        transition: all 0.4s;
+    }
+    .project-buttons .icons:hover{
+        color: var(--clr-orange);
+    }
+    .project-card .project-number{
+        position: absolute;
+        z-index: 5;
+        right: -4rem;
+        top: -4.5rem;
+        font-size:12rem;
+        font-weight: bolder;
+        color: var(--clr-white);
+        opacity: 0;
+        transition: opacity 0.2s;
+    }
+     .project-card:hover .project-number{
+        opacity: 1;
+    }
+
+    .project-card:nth-child(even) .project-number{
+        left: -4rem;
+        top: -4.5rem;
+    }
+    .skill-section{
+    position: relative;
+    /* overflow: hidden; */
+    padding: 8rem 0 24rem;
+    margin-top: 10rem;
+}
+
+.skill-section-content{
+    display: flex;
+    justify-content: space-between;  
+}
+
+    /* //// fadded text */
+
+    .skill-fadded-text{
+        font-size: 10rem;
+        font-weight: 700;
+        color: var(--clr-light-gray);
+        position: absolute;
+        bottom:0%;
+        right: -10%;
+        overflow-y: hidden;
+        user-select: none;
+        text-transform: capitalize;
+    }
+
+    /* //// left */
+    .skill-section-left{
+        width: 50%;
+    }
+
+    .skill-section-heading{
+        font-size: 3rem;
+        color: var(--clr-orange);
+        line-height: 3rem;
+        margin-bottom: 2rem;
+    }
+
+    .skill-section-heading span{
+        font-size: 5rem;
+        font-weight: 700;
+    }
+
+    .skill-section-left p{
+        width: 85%;
+        font-size: 1rem;
+        margin-top: 1rem;
+        text-align: justify;
+    }
+
+    /* ///// right */
+
+    .skill-section-right{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        width: 50%;
+        position: relative;
+    }
+
+    .skill-section-right img{
+        width: 5rem;
+        height: 5rem;
+        transition: all 0.5s;
+    }
+
+    .skill-section-right img:hover{
+        transform: scale(1.2);
+    }
+
+    .skill-section-right .blob-style{
+        width: 15rem;
+        height: 15rem;
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: blobAnimate 3s linear infinite;
+    }
+
+    @keyframes blobAnimate{
+        50% {
+            top: 54%;
+            left: 46%;
+        }
+    }
+    .contact-section {
+    background: var(--clr-light-gray);
+    }
+
+    .contact-section-heading{
+        font-size: 5rem;
+        font-weight: 700;
+        color: var(--clr-orange);
+        padding-top: 1rem;
+        
+    }
+
+    .contact-section-sub-heading{
+        font-size: 3rem;
+        font-weight: 700; 
+        color: #343d68aa;
+        text-transform: capitalize;
+    }
+
+    .contact-form{
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;
+        padding-bottom: 3.2rem;
+        margin: 5rem auto 0;
+    }
+
+    .form-field input,
+    .form-field textarea{
+        display: block;
+        width: 100%;
+        height: 3rem;
+        font-family: inherit;
+        font-size: 1.2rem;
+        font-weight: 500;
+        padding: 0 3rem;
+        background: #ffffff97;
+        border: none;
+        border-radius: 0.2rem;
+        box-shadow: 2px 2px 10px #1f1f1f;
+        outline: none;
+    }
+
+    .form-field textarea{
+        height: auto;
+        padding-top: 1rem;
+        resize: none;
+    }
+
+    .contact-form .form-btn{
+        font-size: 2rem;
+        border: none;
+        margin: 1rem 0;
+    }
+    .contact-form .btn{
+        width: fit-content;
+        font-family: inherit;
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: var(--clr-white);
+        background-color: var(--clr-orange);
+        padding: 1rem 3rem;
+        box-shadow: 5px 5px 7px 0px #0000003f;
+        overflow: hidden;
+        cursor: pointer;
+        z-index: 1;
+        transition: all 0.5s;
+        position: relative;
+    }
+
+    .contact-form .btn::before{
+        content: "";
+        position: absolute;
+        background-color: var(--clr-white);
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: all 0.8s;
+    }
+
+    .contact-form .btn:hover {
+        color: var(--clr-black);
+    }
+
+    .contact-form .btn:hover::before{
+        transform: scaleX(100%);
+    }
+    .contact-form .form-btn:hover{
+        scale: 0.9;
+    }
+
+    .form-btn .icon{
+        padding: 0 1.6rem;
+    }
+    footer{
+    color: #fff;
+    background-color: var(--clr-dark-blue);
+    padding: 5rem 0;
+    height: 250px;
+    position: relative;
+}
+
+    .footer-content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 2.5rem;
+        color: var(--clr-white);
+    }
+
+    .footer-fadded-text{
+        font-size: 5rem;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        color: #535c87;
+        user-select: none;
+    }
+    .footer-content .navbar{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          
+    }
+    .footer-content .navbar {
+        gap: 2rem;
+    }
+
+    .footer-content .navbar   a{
+        font-size: 1.1rem;
+        color: white;
+    }
+
+    .footer-content .navbar  a:hover{
+        font-weight: 500;
+        color: var(--clr-orange);
+    }
+
+    .social-icons{
+        display: flex;
+        gap: 1.6rem;
+    }
+
+    .social-icons .icon{
+        font-size: 2.2rem;
+        color: var(--clr-white);
+        transition: all 0.4s;
+    }
+
+    .social-icons .icon:hover{
+        color: var(--clr-orange);
+    }
+
+    </style>
+</head>
+<body>
+        <div id="wrapper">
+            <div class="container">
+                <div class="navbar">
+
+                    <div class="logo-container">
+                        <img src="images/userAsset/NavLogo.jpg" class="logo">
+                        <div class="logo-text">ohn Doe</div>
+                    </div>
+
+                    <div class="nav-items">
+                        <div><a href="#projects">Projects</a></div>
+                        <div><a href="#skills">Skills</a></div>
+                        <div><a href="#contactme">Contact Me</a></div>
+                    </div>
+                </div>
+
+
+                <div class="hero-section">
+                    <div class="faded-text">John Doe</div>
+                    <div class="hero-section-left">
+                        <div class="name">Hi! John Doe</div>
+                        <div class="profession">I am a <span class="role"></span></div>
+                        <div class="desc">
+                          Im a software developer and here is my portfolio website. Here you’ll
+                          learn about my journey as a software developer.
+                        </div>
+                        <button class="btn"></button>
+                    </div>
+    
+                    <div class="hero-section-right">
+                        <div class=" my-image">
+                          <img src="images/userAsset/UserImage.png"  />
+                        </div>
+                
+                        <div class="absolute icons icon-zigzag">
+                          <img src="images/userAsset/zigzags.png" alt="" />
+                        </div>
+                
+                        <div class="absolute icons icon-plus">
+                          <img src="images/userAsset/plus.png" alt="" />
+                        </div>
+                
+                        <div class="absolute icons icon-cube">
+                          <img src="images/userAsset/cube.png" alt="" />
+                        </div>
+                
+                        <div class="absolute icons icon-circle">
+                          <img src="images/userAsset/circle.png" alt="" />
+                        </div>
+                
+                        <div class="absolute icons icon-dots">
+                          <img src="images/userAsset/dots.png" alt="" />
+                        </div>
+                    </div> 
+                </div>
+               
+            </div> 
+            
+            <div class="project-section" id="projects">
+                <h1 class="project-header">Projects</h1>
+          
+                <div class="project-container ">
+                  <!-- //// -->
+                  <div class="project-card" id="project-1">
+                    <div class="project-number">01</div>
+                    <div class="project-content">
+                      <div class="project-skills-container">
+                        <img src="images/stack/HTML.png" alt="" />
+                        <img src="images/stack/CSS.png" alt="" />
+                        <img src="images/stack/Javascript.svg" alt="" />
+                        <img src="images/stack/Express.png" alt="" />
+                        <img src="images/stack/NextJsCircle.png" alt="" />
+                        <img src="images/stack/Tailwind.png" alt="" />
+                        <img src="images/stack/NodeJs.svg" alt="" />
+                        <img src="images/stack/MongoDB.svg" alt="" />
+                        <img src="images/stack/Redux.svg" alt="" />
+                        <img src="images/stack/Vercel.svg" alt="" />
+                      </div>
+          
+                      <h2>Tint & Orange</h2>
+          
+                      <p>
+                        Its is a car modification copany which provide you sheets to
+                        protect your car from scratch
+                      </p>
+          
+                      <div class="project-buttons">
+                        <button class="btn">Read More</button>
+                        <a href="#">
+                          <i class="fa-brands fa-github icons"></i>
+                        </a>
+          
+                        <a href="#">
+                          <i class="fa-solid fa-link icons"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- ///// -->
+          
+                  <!-- //// -->
+                  <div class="project-card" id="project-2">
+                    <div class="project-number">02</div>
+                    <div class="project-content">
+                      <div class="project-skills-container">
+                        <img src="images/stack/HTML.png" alt="" />
+                        <img src="images/stack/CSS.png" alt="" />
+                        <img src="images/stack/Javascript.svg" alt="" />
+                        <img src="images/stack/NextJsCircle.png" alt="" />
+                        <img src="images/stack/Tailwind.png" alt="" />
+                        <img src="images/stack/Redux.svg" alt="" />
+                        <img src="images/stack/Vercel.svg" alt="" />
+                      </div>
+          
+                      <h2>Breaking Copyrights</h2>
+          
+                      <p>A platform to download copyrights free youtube music</p>
+          
+                      <div class="project-buttons">
+                        <button class="btn">Read More</button>
+                        <a href="#">
+                          <i class="fa-brands fa-github icons"></i>
+                        </a>
+          
+                        <a href="#">
+                          <i class="fa-solid fa-link icons"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div> 
+                  <!-- ///// -->
+          
+                  <!-- //// -->
+                   <div class="project-card" id="project-3">
+                    <div class="project-number">03</div>
+                    <div class="project-content">
+                      <div class="project-skills-container">
+                        <img src="images/stack/HTML.png" alt="" />
+                        <img src="images/stack/CSS.png" alt="" />
+                        <img src="images/stack/Javascript.svg" alt="" />
+                        <img src="images/stack/NextJsCircle.png" alt="" />
+                        <img src="images/stack/Tailwind.png" alt="" />
+                        <img src="images/stack/Vercel.svg" alt="" />
+                      </div>
+          
+                      <h2>Isha Tattva</h2>
+          
+                      <p>
+                        A Website for interior designer to showcase her works and samples
+                      </p>
+          
+                      <div class="project-buttons">
+                        <button class="btn">Read More</button>
+                        <a href="#">
+                          <i class="fa-brands fa-github icons"></i>
+                        </a>
+          
+                        <a href="#">
+                          <i class="fa-solid fa-link icons"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div> 
+                  <!-- ///// -->
+          
+                  <!-- //// -->
+                   <div class="project-card" id="project-4">
+                    <div class="project-number">04</div>
+                    <div class="project-content">
+                      <div class="project-skills-container">
+                        <img src="images/stack/NextJsCircle.png" alt="" />
+                        <img src="images/stack/Tailwind.png" alt="" />
+                        <img src="images/stack/Vercel.svg" alt="" />
+                      </div>
+          
+                      <h2>Granit</h2>
+          
+                      <p>
+                        A architectural website to plan your building or home (Hebrew
+                        Language)
+                      </p>
+          
+                      <div class="project-buttons">
+                        <button class="btn">Read More</button>
+                        <a href="#">
+                          <i class="fa-brands fa-github icons"></i>
+                        </a>
+          
+                        <a href="#">
+                          <i class="fa-solid fa-link icons"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div> 
+                  <!-- ///// -->
+                </div>
+              </div>
+              <div class="skill-section container" id="skills">
+                <div class="skill-fadded-text">skills</div>
+                <div class="skill-section-content ">
+                 
+                  <div class="skill-section-left">
+                    <h2 class="skill-section-heading">
+                      <span>M</span>e and <br />MyTech Stack
+                    </h2>
+          
+                    <p>
+                      Hi Everyone My name is John Doe I am a Full Stack Web Developer I
+                      have been working for last 3 Years and Currently I am working with a
+                      Budding Startup in USA and a full Time Freelancer. Currently I am
+                      working on NextJs and Making Beautiful UI-UX are my fey features
+                    </p>
+          
+                    <p>
+                      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non
+                      doloremque aspernatur, maiores voluptatum minus laudantium?
+                      Perspiciatis accusamus minima porro dolores necessitatibus, magni
+                      dolorem et qui veniam nulla sequi molestiae maxime.
+                    </p>
+          
+                    <p>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis quidem
+                      quos ullam veritatis voluptates tenetur qui ipsa nulla culpa itaque?
+                    </p>
+                  </div>
+          
+                  <div class="skill-section-right">
+                    <img
+                      src="images/userAsset/blob vector.png"
+                      class="blob-style"
+                      alt=""
+                    />
+                    <img src="images/stack/HTML.png" alt="" />
+                    <img src="images/stack/CSS.png" alt="" />
+                    <img src="images/stack/Javascript.svg" alt="" />
+                    <img src="images/stack/React.png" alt="" />
+                    <img src="images/stack/NodeJs.svg" alt="" />
+                    <img src="images/stack/Next.svg" alt="" />
+                    <img src="images/stack/Redux.svg" alt="" />
+                    <img src="images/stack/Tailwind.png" alt="" />
+                    <img src="images/stack/Bootstrap.svg" alt="" />
+                    <img src="images/stack/MaterialUI.svg" alt="" />
+                    <img src="images/stack/Express.png" alt="" />
+                    <img src="images/stack/Git.svg" alt="" />
+                    <img src="images/stack/Github.svg" alt="" />
+                    <img src="images/stack/Bash.svg" alt="" />
+                    <img src="images/stack/MongoDB.svg" alt="" />
+                    <img src="images/stack/Vercel.svg" alt="" />
+                    <img src="images/stack/ChartJs.svg" alt="" />
+                    <img src="images/stack/Docker.svg" alt="" />
+                    <img src="images/stack/Graphql.svg" alt="" />
+                    <img src="images/stack/K8s.svg" alt="" />
+                  </div>
+                </div>
+              </div>
+              <div class="contact-section" id="contactme">
+                <div class="contact-section-content container">
+                  <h2 class="contact-section-heading">Contact Me</h2>
+                  <h3 class="contact-section-sub-heading">
+                    Questions, thoughts, or just want to say hello?
+                  </h3>
+          
+                  <form action="#" class="contact-form">
+                    <div class="form-field">
+                      <input type="text" placeholder="Enter your name" />
+                    </div>
+          
+                    <div class="form-field">
+                      <input type="email" placeholder="Enter your email address" />
+                    </div>
+          
+                    <div class="form-field">
+                      <input type="text" placeholder="Enter your subject" />
+                    </div>
+          
+                    <div class="form-field">
+                      <textarea
+                        name=""
+                        id="my-textarea"
+                        cols="30"
+                        rows="10"
+                        placeholder="Enter your message"
+                      ></textarea>
+                    </div>
+          
+                    <div class="button-field">
+                      <button type="submit" class="btn form-btn">
+                        Send Message
+                        <i class="fa-solid fa-paper-plane icon"></i>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <footer>
+                <div class="footer-content container">
+                  <div class="footer-fadded-text">John Doe</div>
+          
+                  <nav class="navbar">
+                    
+                      <div><a href="#projects">Projects</a></div>
+                      <div><a href="#skills">Skills</a></div>
+                      <div><a href="#contact">Contact Me</a></div>
+                
+                  </nav>
+          
+                  <div class="social-icons">
+                    <a href="#">
+                      <i class="fa-brands fa-linkedin icon"></i>
+                    </a>
+          
+                    <a href="#">
+                      <i class="fa-brands fa-github icon"></i>
+                    </a>
+          
+                    <a href="#">
+                      <i class="fa-brands fa-twitter icon"></i>
+                    </a>
+          
+                    <a href="#">
+                      <i class="fa-brands fa-instagram icon"></i>
+                    </a>
+          
+                    <a href="#">
+                      <i class="fa-regular fa-envelope icon"></i>
+                    </a>
+                  </div>
+                </div>
+              </footer>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+        <script>
+        var typeData = new Typed(".role", {
+            strings: [
+            "Full Stack Developer",
+            "Web Developer",
+            "UI-UX Designer",
+            "Backend Developer",
+            "Coder",
+            ],
+            loop: true,
+            typeSpeed: 100,
+            backSpeed: 80,
+            backDelay: 1000,
+        });
+        </script>
+</body>
+</html>
